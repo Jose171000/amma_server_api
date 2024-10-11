@@ -20,7 +20,7 @@ app.post("/enviar-correo", (req, res) => {
     from: user,
     to: email, // Dirección del destinatario
     subject: subject, // Asunto del correo
-    text: message, // Mensaje del correo
+    text: typeof message === 'string' ? message : JSON.stringify(message, null, 2)// Mensaje del correo
   };
 
   // Enviar el correo
